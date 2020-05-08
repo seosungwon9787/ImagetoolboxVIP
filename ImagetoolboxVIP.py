@@ -304,6 +304,7 @@ class WindowClass(QMainWindow, basic_ui) :
             
             #권나성
             if num == 1:
+                qPixmapVar3=funcNasung.EdgeDetection(self.image_left)
                 pass
             #권나성
 
