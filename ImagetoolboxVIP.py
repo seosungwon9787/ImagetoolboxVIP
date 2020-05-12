@@ -359,6 +359,7 @@ class WindowClass(QMainWindow, basic_ui) :
 
             #황승언
             else :
+                qPixmapVar3=funcSeungeon.Preprocessing(self.image_left)
                 pass
             #황승언
 
