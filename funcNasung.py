@@ -3,7 +3,6 @@ from PyQt5 import uic
 from PyQt5.QtGui import *
 import qimage2ndarray
 import numpy as np
-import cv2
 
 # 그레이 스케일 
 def Gray_scale(image_arr):
