@@ -3,15 +3,6 @@ from PyQt5 import uic
 from PyQt5.QtGui import *
 import qimage2ndarray
 import numpy as np
-<<<<<<< HEAD
-
-def EdgeDetection(image):
-    image_arr= qimage2ndarray_rgb_view(image)
-    gray_weights=[0.2989, 0.5870,0.1140]
-    grayscale=np.dot(image_arr[...,:3], gray_weights)
-
-
-=======
 from numpy import pi, exp, sqrt
 
 
@@ -28,10 +19,9 @@ def gaussian(scale, sigma):
 
 def EdgeDetection(image):
     #grayscale
-    image_arr=qimage2ndarray_rgb_view(image)
+    image_arr=qimage2ndarray.rgb_view(image)
     gray_weights=[0.2989, 0.5870, 0.1140]
     grayscale=np.dot(image_arr[...,:3],gray_weights)
-    gaussian(grayscale,1)
 
     #mask= np.array([[1 / 273, 4 / 273, 7 / 273, 4 / 273, 1 / 273],
     #                [4 / 273, 16 / 273, 28 / 273, 16 / 273, 4 / 273],
@@ -40,7 +30,7 @@ def EdgeDetection(image):
     #                [1 / 273, 4 / 273, 7 / 273, 4 / 273, 1 / 273]])
     #가우시안 필터 생성
     scale = 5
-    mask2 = gaussian(scale, 1)
+    mask2 = gaussian(scale, 2)
 
     #패딩
     npad = int(scale / 2)
@@ -60,14 +50,11 @@ def EdgeDetection(image):
     for i in range(1, npad+1):
         gaussian_arr=np.delete(gaussian_arr,0,axis=0)
         gaussian_arr = np.delete(gaussian_arr, 0, axis=1)
-        print(gaussian_arr.shape)
 
         m,n=gaussian_arr.shape
         gaussian_arr = np.delete(gaussian_arr, m-1, axis=0)
         gaussian_arr = np.delete(gaussian_arr, n-1, axis=1)
-        print(gaussian_arr)
 
     image = qimage2ndarray.array2qimage(gaussian_arr, normalize=False)
     qPixmapVar = QPixmap.fromImage(image)
     return qPixmapVar
->>>>>>> f944d07237dc62f2c5313148af409b3c83a6e329
