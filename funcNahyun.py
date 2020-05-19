@@ -54,7 +54,7 @@ def EdgeDetection(image):
     #                [1 / 273, 4 / 273, 7 / 273, 4 / 273, 1 / 273]])
 
     #가우시안 마스크 생성 및 적용
-    scale = 5
+    scale = 5 #로딩시간이 오래걸린다면 scale=3으로 변경
     gaussian_mask = gaussian(scale, 1)
     gaussian_arr=filter(gaussian_mask,scale,grayscale)
 
@@ -68,6 +68,7 @@ def EdgeDetection(image):
                                 [0, -1, -2, -1, 0],
                                 [0, 0, -1, 0, 0]])
 
+    #시간이 로래걸린다면 laplacian_arr=filter(laplacian_mask1,3,gaussian_arr)으로 변경
     laplacian_arr=filter(laplacian_mask2,5,gaussian_arr)
 
     image = qimage2ndarray.array2qimage(laplacian_arr, normalize=False)
