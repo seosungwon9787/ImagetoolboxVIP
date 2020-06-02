@@ -32,6 +32,18 @@ def Gaussian(gray_arr):
 
     x,y=gray_arr.shape
 
+    gaussian_arr=np.zeros((x,y))
+
+    for i in range(pad_scale,y+pad_scale):
+        for j in range(pad_scale,x+pad_scale):
+            sample_pad=image_pad[j:j+fscale,i:i+fscale]
+            sample_pad*filter_arr
+            
+
+
+
+
+
 
 
     #model_arr=np.zeros(x+h_scale,x+h_scale)
