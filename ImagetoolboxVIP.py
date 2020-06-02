@@ -139,6 +139,7 @@ class WindowClass(QMainWindow, basic_ui) :
             
             #권나성
             if num == 1:
+                qPixmapVar3=funcNasung.Harris_CornerDetection(self.image_left)
                 pass
             #권나성
 
@@ -221,6 +222,7 @@ class WindowClass(QMainWindow, basic_ui) :
             
             #권나성
             if num == 1:
+                qPixmapVar3=funcNasung.HoughTransform(self.image_left)
                 pass
             #권나성
 
