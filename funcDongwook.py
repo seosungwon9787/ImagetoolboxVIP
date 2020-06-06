@@ -38,6 +38,9 @@ def Gaussian(gray_arr):
         for j in range(pad_scale,x+pad_scale):
             sample_pad=image_pad[j:j+fscale,i:i+fscale]
             sample_pad*filter_arr
+            gaussian_arr[j-pad_scale,i-pad_scale]=sample_pad.sum()
+    
+    return gaussian_arr
             
 
 
